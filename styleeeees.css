@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #121212; /* Dark background */
+    color: white; /* White text for the title */
+    font-family: Arial, sans-serif;
+    text-align: center; /* Center title */
+  }
+  
+  h1 {
+    font-size: 3rem; /* Large font size */
+    margin: 20px 0; /* Space around the title */
+  }
+  
+  #imageContainer {
+    position: relative; /* Enables positioning of child elements */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  #backgroundImage {
+    width: 100%; /* Make the background image responsive */
+    max-width: 1900px; /* Adjust the size of the background image */
+  }
+  
+  #overlayImage {
+    position: absolute; /* Superimpose on the background image */
+    top: 27%; /* Move the overlay image higher */
+    left: 50%; /* Center horizontally */
+    transform: translate(-60%, -50%); /* Adjust for exact centering */
+    width: 20%; /* Adjust overlay size as needed */
+  }
+  
