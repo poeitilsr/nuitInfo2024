@@ -1,6 +1,7 @@
-// Set background image dynamically
-document.getElementById('backgroundImage').src = 'Illustration_sans_titre_3.png';
+// Get the overlay image element
+const overlayImage = document.getElementById('overlayImage');
 
-// Set overlay image dynamically
-document.getElementById('overlayImage').src = 'IMG_0087-removebg-preview_avec_arriere-plan_supprime.png';
-
+// Add a click event listener to toggle the zoom effect
+overlayImage.addEventListener('click', () => {
+  overlayImage.classList.toggle('zoomed'); // Toggle the zoom class
+});

@@ -4,7 +4,7 @@ body {
     background-color: #121212; /* Dark background */
     color: white; /* White text for the title */
     font-family: Arial, sans-serif;
-    text-align: center; /* Center title */
+    text-align: center;
   }
   
   h1 {
@@ -14,15 +14,14 @@ body {
   
   #imageContainer {
     position: relative; /* Enables positioning of child elements */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
+    width: 100%; /* Make the container span full width */
+    margin: 0 auto; /* Center the container horizontally */
   }
   
   #backgroundImage {
     width: 100%; /* Make the background image responsive */
     max-width: 1900px; /* Adjust the size of the background image */
+    display: block;
   }
   
   #overlayImage {
@@ -31,5 +30,10 @@ body {
     left: 50%; /* Center horizontally */
     transform: translate(-60%, -50%); /* Adjust for exact centering */
     width: 20%; /* Adjust overlay size as needed */
+    transition: transform 0.3s ease; /* Smooth zoom animation */
+  }
+  
+  #overlayImage.zoomed {
+    transform: translate(-60%, -50%) scale(1.2); /* Apply zoom effect */
   }
   
