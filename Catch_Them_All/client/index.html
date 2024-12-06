@@ -5,12 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catch Them All</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            position: relative;
+        }
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel img {
+            width: 100%;
+            flex-shrink: 0;
+        }
+    </style>
 </head>
 <body>
     <div class="content">
         <h1>Catch Them All</h1>
         <button id="openModal" class="add-button">+</button>
     </div>
+
+    <div class="carousel">
+        <div class="carousel-images" id="carouselImages">
+            <!-- ajouter les qrcode iciiiii-->
+        </div>
+    </div>
+
     <div class="badge">
         <img id="corsola" src="" alt="Corsola">
         <img id="quagsire" src="" alt="Quagsire">
