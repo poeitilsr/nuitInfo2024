@@ -6,6 +6,7 @@
     <title>Catch Them All</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        /* Carousel Styles */
         .carousel {
             display: flex;
             overflow: hidden;
@@ -22,6 +23,23 @@
             width: 100%;
             flex-shrink: 0;
         }
+        .carousel-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .carousel-button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 50%;
+        }
     </style>
 </head>
 <body>
@@ -30,9 +48,17 @@
         <button id="openModal" class="add-button">+</button>
     </div>
 
+    <!-- Carousel Section -->
     <div class="carousel">
         <div class="carousel-images" id="carouselImages">
-            <!-- ajouter les qrcode iciiiii-->
+            <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/quagsire.gif" alt="Quagsire">
+            <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/corsola.gif" alt="Corsola">
+            <img src="https://img.pokemondb.net/sprites/black-white/anim/back-normal/gyarados.gif" alt="Gyarados">
+            <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/kyogre.gif" alt="Kyogre">
+        </div>
+        <div class="carousel-buttons">
+            <button class="carousel-button" id="prevButton">&lt;</button>
+            <button class="carousel-button" id="nextButton">&gt;</button>
         </div>
     </div>
 
