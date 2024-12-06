@@ -1,0 +1,32 @@
+/* Reset et styles de base */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: url('./assets/image.png') no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenu principal */
+.content {
+    text-align: center;
+    position: relative;
+    bottom: 350px;
+    background: rgba(0, 0, 0, 0.5); /* Overlay semi-transparent */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+p {
+    font-size: 1.5rem;
+}
