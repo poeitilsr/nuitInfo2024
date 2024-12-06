@@ -1,117 +1,19 @@
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #121212; /* Dark background */
-    color: white; /* White text for the title */
-    font-family: Arial, sans-serif;
-    text-align: center;
-  }
-  
-  h1 {
-    font-size: 3rem; /* Large font size */
-    margin: 20px 0; /* Space around the title */
-  }
-  
-  #imageContainer {
-    position: relative; /* Enables positioning of child elements */
-    width: 100%; /* Make the container span full width */
-    margin: 0 auto; /* Center the container horizontally */
-  }
-  
-  #backgroundImage {
-    width: 100%; /* Make the background image responsive */
-    max-width: 1900px; /* Adjust the size of the background image */
-    display: block;
-  }
-  
-  #overlayImage {
-    position: absolute; /* Superimpose on the background image */
-    top: 27%; /* Move the overlay image higher */
-    left: 50%; /* Center horizontally */
-    transform: translate(-60%, -50%); /* Adjust for exact centering */
-    width: 18%; /* Adjust overlay size as needed */
-    transition: transform 0.3s ease; /* Smooth zoom animation */
-  }
-
-  #overlayImage2 {
-    position: absolute; /* Superimpose on the background image */
-    top: 35%; /* Move the overlay image higher */
-    left: 50%; /* Center horizontally */
-    transform: translate(-70%, -50%); /* Adjust for exact centering */
-    width: 10%; /* Adjust overlay size as needed */
-    transition: transform 0.3s ease; /* Smooth zoom animation */
-  }
-
-  #overlayImage3 {
-    position: absolute; /* Superimpose on the background image */
-    top: 10%; /* Move the overlay image higher */
-    left: 50%; /* Center horizontally */
-    transform: translate(-65%, -50%); /* Adjust for exact centering */
-    width: 10%; /* Adjust overlay size as needed */
-    transition: transform 0.3s ease; /* Smooth zoom animation */
-  }
-
-  #overlayImage4 {
-    position: absolute; /* Superimpose on the background image */
-    top: 25%; /* Move the overlay image higher */
-    left: 55%; /* Center horizontally */
-    transform: translate(-65%, -50%); /* Adjust for exact centering */
-    width: 5%; /* Adjust overlay size as needed */
-    transition: transform 0.3s ease; /* Smooth zoom animation */
-  }
-
-  #overlayImage5 {
-    position: absolute; /* Superimpose on the background image */
-    top: 31%; /* Move the overlay image higher */
-    left: 53.5%; /* Center horizontally */
-    transform: translate(-65%, -50%); /* Adjust for exact centering */
-    width: 7%; /* Adjust overlay size as needed */
-    transition: transform 0.3s ease; /* Smooth zoom animation */
-  }
-
-  #overlayImage6 {
-    position: absolute; /* Superimpose on the background image */
-    top: 38%; /* Move the overlay image higher */
-    left: 64%; /* Center horizontally */
-    transform: translate(-65%, -50%); /* Adjust for exact centering */
-    width: 13%; /* Adjust overlay size as needed */
-    transition: transform 0.3s ease; /* Smooth zoom animation */
-  }
-
-  #overlayImage7 {
-    position: absolute; /* Superimpose on the background image */
-    top: 87%; /* Move the overlay image higher */
-    left: 52.5%; /* Center horizontally */
-    transform: translate(-65%, -50%); /* Adjust for exact centering */
-    width: 31%; /* Adjust overlay size as needed */
-    transition: transform 0.3s ease; /* Smooth zoom animation */
-  }
-  
-  #overlayImage.zoomed {
-    transform: translate(-60%, -50%) scale(1.2); /* Apply zoom effect */
-  }
-
-  #overlayImage2.zoomed {
-    transform: translate(-70%, -50%) scale(1.2); /* Apply zoom effect */
-  }
-
-  #overlayImage3.zoomed {
-    transform: translate(-65%, -50%) scale(1.2); /* Apply zoom effect */
-  }
-
-  #overlayImage4.zoomed {
-    transform: translate(-65%, -50%) scale(1.2); /* Apply zoom effect */
-  }
-
-  #overlayImage5.zoomed {
-    transform: translate(-65%, -50%) scale(1.2); /* Apply zoom effect */
-  }
-
-  #overlayImage6.zoomed {
-    transform: translate(-65%, -50%) scale(1.2); /* Apply zoom effect */
-  }
-
-  #overlayImage7.zoomed {
-    transform: translate(-65%, -50%) scale(1.2); /* Apply zoom effect */
-  }
+body{margin:0;padding:0;background-color: #121212;color: white;font-family:Arial,sans-serif;text-align:center;}
+h1{font-size:3rem;margin:20px 0;}
+#imageContainer{position:relative;width:100%;margin: 0 auto;}
+#backgroundImage{width:100%;max-width:1900px;display:block;}
+#overlayImage{position:absolute;top:27%;left:50%;transform:translate(-60%,-50%);width:18%;transition:transform 0.3s ease;}
+#overlayImage2{position:absolute;top:35%;left:50%;transform:translate(-70%,-50%);width:10%;transition:transform 0.3s ease;}
+#overlayImage3{position:absolute;top:10%;left:50%;transform:translate(-65%,-50%);width:10%;transition:transform 0.3s ease;}
+#overlayImage4{position:absolute;top:25%;left:55%;transform:translate(-65%,-50%);width: 5%;transition:transform 0.3s ease;}
+#overlayImage5{position:absolute;top:31%;left:53.5%;transform:translate(-65%,-50%);width:7%;transition:transform 0.3s ease;}
+#overlayImage6{position:absolute;top:38%;left:64%;transform:translate(-65%,-50%);width:13%;transition:transform 0.3s ease;}
+#overlayImage7{position:absolute;top:87%;left:52.5%;transform:translate(-65%,-50%);width:31%;transition:transform 0.3s ease;}
+#overlayImage.zoomed{transform:translate(-60%,-50%) scale(1.2);}
+#overlayImage2.zoomed{transform:translate(-70%,-50%) scale(1.2);}
+#overlayImage3.zoomed{transform:translate(-65%,-50%) scale(1.2);}
+#overlayImage4.zoomed{transform:translate(-65%,-50%) scale(1.2);}
+#overlayImage5.zoomed{transform:translate(-65%,-50%) scale(1.2);}
+#overlayImage6.zoomed{transform:translate(-65%,-50%) scale(1.2);}
+#overlayImage7.zoomed{transform:translate(-65%, -50%) scale(1.2);}
   
