@@ -1,0 +1,86 @@
+import os
+import sys
+from PIL import Image, ImageEnhance
+import numpy as np
+import qrcode
+import re
+
+def image_to_mosaic(image_path, block_size):
+    img = Image.open(image_path)
+    img_gray = img.convert('L')
+    enhancer = ImageEnhance.Contrast(img_gray)
+    img_gray = enhancer.enhance(2.5)
+    img_array = np.array(img_gray)
+    height, width = img_array.shape
+    
+    mosaic_array = np.zeros_like(img_array)
+    
+    for i in range(0, height, block_size):
+        for j in range(0, width, block_size):
+            block = img_array[i:i+block_size, j:j+block_size]
+            mean_color = np.mean(block)
+            if mean_color > 128:
+                mosaic_array[i:i+block_size, j:j+block_size] = 255  # Blanc
+            else:
+                mosaic_array[i:i+block_size, j:j+block_size] = 0  # Noir
+    mosaic_image = Image.fromarray(mosaic_array)
+    mosaic_image.show()
+    return mosaic_image
+
+def generate_qrcode(image, link):
+    if image is None:
+        print("Erreur : L'image pour générer le QR code est invalide.")
+        return
+
+    image.convert("RGBA")
+    qr_version = 12
+    qr = qrcode.QRCode(
+        version=qr_version,
+        error_correction=qrcode.constants.ERROR_CORRECT_H,
+        box_size=10,
+        border=4,
+    )
+    qr.add_data(link)
+    qr.make(fit=True)
+
+    qr_img = qr.make_image(fill_color="black", back_color="white").convert("RGBA")
+
+    qr_width, qr_height = qr_img.size
+    image_resized = image.resize((qr_width, qr_height), Image.NEAREST)
+    image_resized = image_resized.convert("RGBA")
+
+    qr_pixels = qr_img.load()
+    image_pixels = image_resized.load()
+
+    for x in range(qr_width):
+        for y in range(qr_height):
+            if qr_pixels[x, y] == (0, 0, 0, 255):
+                if image_pixels[x, y] != (255, 255, 255, 255):
+                    qr_pixels[x, y] = image_pixels[x, y]
+                elif image_pixels[x, y][3] == 0:
+                    qr_pixels[x, y] = (0, 0, 0, 255)
+                else:
+                    qr_pixels[x, y] = (180, 180, 180, 255)
+            else:
+                qr_pixels[x, y] = (255, 255, 255, 255)
+
+    filename = "qrcode-" + re.sub(r'[^\w\s-]', '', link).replace(' ', '_').replace('-', '_') + ".png"
+    qr_img.save("qrcode/" + filename)
+
+def handleParams(params):
+    if '-l' not in params or '-i' not in params:
+        print("Erreur : Paramètres invalides.")
+        return None, None
+    link = params[params.index('-l') + 1]
+    image_path = params[params.index('-i') + 1]
+    return link, image_path
+
+def main():
+    link, image_path = handleParams(sys.argv)
+    if link is None or image_path is None:
+        return
+
+    mosaic_image = image_to_mosaic(image_path, 2)
+    generate_qrcode(mosaic_image, link)
+
+main()

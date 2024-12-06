@@ -1,3 +1,71 @@
+const pokemonlist = [
+    "amonistar.png",
+    "carabaffe.png",
+    "carapuce.png",
+    "dofin.png",
+    "flotajou.png",
+    "gobou.png",
+    "greninja.png",
+    "kyogre.png",
+    "hypocean.png",
+    "leviator.png",
+    "lokhlass.png",
+    "loupio.png",
+    "phione.png",
+    "stari.png",
+    "volcanion.png",
+    "wailmer.png",
+];
+
+document.addEventListener("DOMContentLoaded", () => {
+    const openModalBtn = document.getElementById("openModal");
+    const closeModalBtn = document.getElementById("closeModal");
+    const modal = document.getElementById("modal");
+    const form = document.getElementById("addPokemonForm");
+    const badgeContainer = document.querySelector(".badge");
+    const pokemonImageSelect = document.getElementById("pokemonImage");
+
+    pokemonlist.forEach(pokemon => {
+        const option = document.createElement("option");
+        option.value = `assets/images/${pokemon}`;
+        option.textContent = pokemon.replace(".png", "");
+        pokemonImageSelect.appendChild(option);
+    });
+
+    openModalBtn.addEventListener("click", () => {
+        modal.style.display = "flex";
+    });
+
+    closeModalBtn.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+
+    window.addEventListener("click", (event) => {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        
+        const link = document.getElementById("pokemonLink").value;
+        
+        form.reset();
+
+        modal.style.display = "none";
+    });
+});
+
+function updateBadges() {
+    Object.keys(badgesState).forEach(badgeId => {
+        const badgeElement = document.getElementById(badgeId);
+        const isUnlocked = badgesState[badgeId];
+        badgeElement.src = isUnlocked ? badgesImages[badgeId].unlocked : badgesImages[badgeId].locked;
+    });
+}
+
+
 const badgesState = {
     corsola: false,
     quagsire: false,
@@ -119,4 +187,50 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     startMovingImages();
+});
+document.addEventListener("DOMContentLoaded", () => {
+    const openModalBtn = document.getElementById("openModal");
+    const closeModalBtn = document.getElementById("closeModal");
+    const modal = document.getElementById("modal");
+    const form = document.getElementById("addPokemonForm");
+    const badgeContainer = document.querySelector(".badge");
+
+    openModalBtn.addEventListener("click", () => {
+        modal.style.display = "flex";
+    });
+
+    closeModalBtn.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+
+    window.addEventListener("click", (event) => {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        
+        const link = document.getElementById("pokemonLink").value;
+        const imageInput = document.getElementById("pokemonImage");
+        const file = imageInput.files[0];
+
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const newBadge = document.createElement("img");
+                newBadge.src = e.target.result;
+                newBadge.alt = "Pokemon";
+                newBadge.setAttribute("data-link", link);
+
+                badgeContainer.appendChild(newBadge);
+            };
+            reader.readAsDataURL(file);
+        }
+
+        form.reset();
+
+        modal.style.display = "none";
+    });
 });

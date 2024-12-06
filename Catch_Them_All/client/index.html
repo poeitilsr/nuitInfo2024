@@ -9,6 +9,7 @@
 <body>
     <div class="content">
         <h1>Catch Them All</h1>
+        <button id="openModal" class="add-button">+</button>
     </div>
     <div class="badge">
         <img id="corsola" src="" alt="Corsola">
@@ -21,6 +22,25 @@
     <img class="movable" src="https://img.pokemondb.net/sprites/black-white/anim/back-normal/gyarados.gif" alt="Gyarados">
     <img class="movable" src="https://img.pokemondb.net/sprites/black-white/anim/normal/kyogre.gif" alt="Kyogre">
     <img id="qrcode" src="assets/qrcodetest.png" alt="QR Code" class="hidden">
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" class="close">&times;</span>
+            <h2 class="black">Ajouter un Pokémon</h2>
+            <form id="addPokemonForm">
+                <label for="pokemonLink" class="black">Lien :</label>
+                <input type="text" id="pokemonLink" placeholder="Entrez le lien" required>
+                
+                <label for="pokemonImage" class="black">Image :</label>
+                <select id="pokemonImage" required>
+                    <option value="" disabled selected>Choisissez une image</option>
+                </select>
+                
+                <button type="submit">Ajouter</button>
+            </form>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
